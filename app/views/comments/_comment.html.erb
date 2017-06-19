@@ -9,7 +9,7 @@
   <%= comment.body %> -
   <small>Submitted <%= time_ago_in_words(comment.created_at) %> ago</small>
 
-  <%= button_to "Delete", {action: "delete", id: @comment.id }, method: :delete, data: { confirm: "Are you sure?" } %>
+  <%#= button_to "Delete", {action: "delete", id: comment.id }, method: :delete, data: { confirm: "Are you sure?" } %>
 
   <%= form_for [comment, Comment.new] do |f| %>
     <%= f.text_field :author, placeholder: "Name" %><br/>
