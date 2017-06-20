@@ -24,7 +24,7 @@ before_action :find_discussion
     private
 
     def comment_params
-      params.require(:comment).permit(:author, :body, :url)
+      params.require(:comment).permit(:author, :email, :url, :body)
     end
 
     def find_discussion
