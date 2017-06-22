@@ -1,3 +1,4 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  #removed so that anyone can send a request
+  #protect_from_forgery with: :exception
 end
