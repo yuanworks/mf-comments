@@ -7,11 +7,13 @@
   <%= render(partial: 'comments/comment', collection: @article.comments) %>
 </ul>
 
-<h2 id="mfc-leave-comment">Leave a Comment</h2>
-<%= form_for [@article, Comment.new] do |f| %>
-<%= f.text_area :body, placeholder: "Add a Reply", required: true %><br/>
-<%= f.text_field :author, placeholder: "Name*", required: true %><br/>
-<%= f.text_field :email, placeholder: "Email*", required: true %><br/>
-<%= f.text_field :url, placeholder: "Website" %><br/>
-<%= f.submit "Add Comment" %>
-<% end %>
+<div id="mfc-comment-box">
+  <h2>Leave a Comment</h2>
+  <%= form_for [@article, Comment.new] do |f| %>
+  <%= f.text_area :body, placeholder: "Add a Reply", required: true %><br/>
+  <%= f.text_field :author, placeholder: "Name*", required: true %><br/>
+  <%= f.text_field :email, placeholder: "Email*", required: true %><br/>
+  <%= f.text_field :url, placeholder: "Website" %><br/>
+  <%= f.submit "Add Comment" %>
+  <% end %>
+</div>
