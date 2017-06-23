@@ -1,6 +1,11 @@
 
 window.onload = initializeComments
 
+// HELPERS
+function insertAfter(newNode, referenceNode) {
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
+
 function initializeComments() {
     setReplyLinks();
     console.log("finished initialize")
@@ -8,9 +13,10 @@ function initializeComments() {
 
 function setReplyLinks() {
     var replyLinks = document.getElementsByClassName("reply")
-    console.log("caca")
-    for (i = 0; replyLinks.length; i++) {
+
+    for (i = 0; i < replyLinks.length; i++) {
         replyLinks[i].addEventListener("click", moveReplyBox)
+        console.log("Eventlistener for:", replyLinks[i])
     }    
 }
 
@@ -18,7 +24,8 @@ function moveReplyBox() {
     console.log(this)
     
     //
-    this.parentElement.appendChild(document.getElementById("mfc-comment-box"));
+    insertAfter(document.getElementById("mfc-comment-box"), this);
+    //this.parentElement.appendChild(document.getElementById("mfc-comment-box"));
     
     var form = document.getElementById("new_comment");
     var replyID = this.id.split('-')[2];

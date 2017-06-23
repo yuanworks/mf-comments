@@ -1,9 +1,8 @@
 <li>
   
+  <div class="comment">
   <div class="author">
-  <% if comment.email? %>
-    <%= image_tag gravatar_url(comment.email, 80), class: 'gravatar' %>
-  <% end %>
+      <%= image_tag gravatar_url(comment.email, 80), class: 'gravatar' %>
   
   <% if !comment.url? %>
     <%= comment.author %>
@@ -12,8 +11,8 @@
   <% end %>
   </div>
   
-  <%= comment.body %> -
-  <small>Submitted <%= time_ago_in_words(comment.created_at) %> ago</small>
+  <p><%= comment.body %></p>
+  <!-- - <small>Submitted <%= time_ago_in_words(comment.created_at) %> ago</small> -->
   <div id="mfc-reply-<%=comment.id%>" class="reply">Reply</div>
   <%#= button_to "Delete", {action: "delete", id: comment.id }, method: :delete, data: { confirm: "Are you sure?" } %>
 
@@ -25,6 +24,7 @@
     <%= f.submit "Reply"  %>
   <% end %>
   -->
+  </div>
 
   <ul>
       <%= render partial: 'comments/comment', collection: comment.comments %>

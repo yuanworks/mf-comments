@@ -2,6 +2,14 @@
 
 Welcome to MF Comments - Ruby.
 
+# TO DO
+
+* Only allow myself to use the name "Yuan" and email
+
+* Admin login (auth?)
+
+* Deploy to test apache server
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 

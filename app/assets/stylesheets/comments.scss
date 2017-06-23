@@ -1,16 +1,103 @@
+$orange: #e22e04;
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body.mfc {
+    font-family: 'Raleway', 'Helvetica', sans-serif;
+    max-width: 100%;
+    width: 600px;
+}
+
 .mfc {
+    
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0; /*-left: 10px;*/
+    }
+    
+    ul:not(:first-child) {
+        padding-left: 14px;
+    }
+    
+    .comment {
+        margin-bottom: 20px;
+    }
+            
     .reply {
-        cursor: pointer;
+        margin-bottom: 10px;
+        display: inline-block;
+        color: gray;
+        text-transform: uppercase;
+        cursor: pointer; 
+    }
+    
+    .reply:hover {
+        color: $orange;
     }
 
     .author {
-        margin-top: 10px;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
+        font-weight: 600;
+        
+        a {
+            color: $orange;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
     }
 
     .gravatar {
         height: 40px;
         width: 40px;
         border-radius: 3px;
+        vertical-align: middle;
+        margin-right: 8px;
+    }
+    
+    /* Comments Form */
+    #comment_body {
+        height: 100px;
+        width: 100%;
+    }
+    
+    #new_comment {    
+        textarea, input {
+            margin-bottom: 12px;
+            padding: 10px;
+            border: 1px solid #c7c7c7;
+            font-family: inherit;
+            font-size: 16px;
+        }
+        
+        textarea:focus, input:focus {
+            background-color: #efefef;
+            outline: 0;
+        }
+    }
+    
+    .name-email {
+        display: flex;
+    }
+    
+    #comment_author {
+        width: 50%;
+        margin-right: 10px;
+    }
+    
+    #comment_email {
+        width: 50%;
+    }
+    
+    #comment_url {
+        width: 100%;
     }
 }
