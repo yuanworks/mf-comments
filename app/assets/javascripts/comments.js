@@ -8,27 +8,39 @@ function insertAfter(newNode, referenceNode) {
 
 function initializeComments() {
     setReplyLinks();
-    console.log("finished initialize")
+    window.commentFormAction = document.getElementById("new_comment").action;
 }
 
 function setReplyLinks() {
-    var replyLinks = document.getElementsByClassName("reply")
+    var replyLinks = document.getElementsByClassName("reply");
 
     for (i = 0; i < replyLinks.length; i++) {
-        replyLinks[i].addEventListener("click", moveReplyBox)
-        console.log("Eventlistener for:", replyLinks[i])
-    }    
+        replyLinks[i].addEventListener("click", moveReplyBox);
+    }
+    
+    var divCancelReply = document.getElementById("mfc-cancel-reply");
+    divCancelReply.addEventListener("click", cancelReply);
+    divCancelReply.classList.add("hidden");
 }
 
 function moveReplyBox() {
-    console.log(this)
-    
-    //
     insertAfter(document.getElementById("mfc-comment-box"), this);
-    //this.parentElement.appendChild(document.getElementById("mfc-comment-box"));
     
     var form = document.getElementById("new_comment");
     var replyID = this.id.split('-')[2];
-	
     form.action = "/comments/" + replyID + "/comments";
+    
+    var divCancelReply = document.getElementById("mfc-cancel-reply");
+    divCancelReply.classList.remove("hidden");
+}
+
+function cancelReply() {
+    var form = document.getElementById("new_comment");
+    form.action = window.commentFormAction;
+    
+    var lastComment = document.getElementById("mfc-comment-last");
+    lastComment.appendChild(document.getElementById("mfc-comment-box"));
+    
+    var divCancelReply = document.getElementById("mfc-cancel-reply");
+    divCancelReply.classList.add("hidden");
 }

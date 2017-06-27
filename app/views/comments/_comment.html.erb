@@ -16,17 +16,9 @@
   <div id="mfc-reply-<%=comment.id%>" class="reply">Reply</div>
   <%#= button_to "Delete", {action: "delete", id: comment.id }, method: :delete, data: { confirm: "Are you sure?" } %>
 
-  <!--
-  <%= form_for [comment, Comment.new] do |f| %>
-    <%= f.text_field :author, placeholder: "Name", required: true %><br/>
-    <%= f.text_field :url, placeholder: "Website" %><br/>
-    <%= f.text_area :body, placeholder: "Add a Reply", required: true %><br/>
-    <%= f.submit "Reply"  %>
-  <% end %>
-  -->
   </div>
 
-  <ul>
+  <ul class="child-comment">
       <%= render partial: 'comments/comment', collection: comment.comments %>
   </ul>
 

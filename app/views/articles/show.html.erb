@@ -3,19 +3,22 @@
 
 <h3>Comments</h3>
 
-<ul>
+<ul class="main-comments">
   <%= render(partial: 'comments/comment', collection: @article.comments) %>
 </ul>
 
-<div id="mfc-comment-box">
-  <h2>Leave a Comment</h2>
-  <%= form_for [@article, Comment.new] do |f| %>
-  <%= f.text_area :body, placeholder: "Add a Reply", required: true %>
-  <div class="name-email">
-  <%= f.text_field :author, placeholder: "Name *", required: true %>
-  <%= f.text_field :email, placeholder: "Email *", required: true %>
-  </div>
-  <%= f.text_field :url, placeholder: "Website" %><br/>
-  <%= f.submit "Add Comment" %>
-  <% end %>
+<div id="mfc-comment-last">
+    <div id="mfc-comment-box">
+      <h3 class="leave-comment">Leave a Comment</h3>
+      <div id="mfc-cancel-reply">Cancel Reply</div>
+      <%= form_for [@article, Comment.new] do |f| %>
+      <%= f.text_area :body, placeholder: "Add a Reply", required: true %>
+      <div class="name-email">
+      <%= f.text_field :author, placeholder: "Name *", required: true %>
+      <%= f.text_field :email, placeholder: "Email *", required: true %>
+      </div>
+      <%= f.text_field :url, placeholder: "Website" %><br/>
+      <%= f.submit "Add Comment" %>
+      <% end %>
+    </div>
 </div>

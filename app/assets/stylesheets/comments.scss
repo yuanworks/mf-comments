@@ -8,6 +8,7 @@ html {
 }
 
 body.mfc {
+    margin: 0px auto;
     font-family: 'Raleway', 'Helvetica', sans-serif;
     max-width: 100%;
     width: 600px;
@@ -15,14 +16,39 @@ body.mfc {
 
 .mfc {
     
+    .hidden {
+        display: none;
+    }
+    
+    p {
+        line-height: 24px;
+    }    
+    
     ul {
         list-style-type: none;
         margin: 0;
-        padding: 0; /*-left: 10px;*/
+        padding: 0;
     }
     
-    ul:not(:first-child) {
+    ul.child-comment {
         padding-left: 14px;
+        border-left: 2px solid #e0e0e0;
+    }
+    
+    /* descendent children */
+    ul.main-comments > li {
+        border-bottom: 1px solid #d4d4d4;
+        
+        /* cancel out other li children (same as ul.main-comments > li li ) */
+        /*
+        li {
+            border-bottom: none;
+        }
+        */
+    }
+    
+    li {
+        margin-bottom: 30px;
     }
     
     .comment {
@@ -30,8 +56,9 @@ body.mfc {
     }
             
     .reply {
-        margin-bottom: 10px;
         display: inline-block;
+        margin-top: 10px;
+        margin-bottom: 10px;
         color: gray;
         text-transform: uppercase;
         cursor: pointer; 
@@ -40,7 +67,7 @@ body.mfc {
     .reply:hover {
         color: $orange;
     }
-
+    
     .author {
         margin-bottom: 20px;
         font-weight: 600;
@@ -63,7 +90,19 @@ body.mfc {
         margin-right: 8px;
     }
     
-    /* Comments Form */
+    /* Comment Box */
+    
+    h3.leave-comment {
+        margin-bottom: 4px;
+    }
+    
+    #mfc-cancel-reply {
+        cursor: pointer; 
+        color: $orange;
+        margin-bottom: 20px;
+    }
+
+    
     #comment_body {
         height: 100px;
         width: 100%;
