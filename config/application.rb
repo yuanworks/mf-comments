@@ -16,6 +16,6 @@ module MfComments
     # -- all .rb files in that directory are automatically loaded.
     
     # Application Settings
-    config.show_comment_date false
+    config.show_comment_date = false
   end
 end
