@@ -12,7 +12,7 @@
   </div>
   
   <p><%= comment.body %></p>
-  <% if false #Rails.configuration.x.show_comment_date %>
+  <% if Rails.application.config.x.show_comment_date %>
     <small>Submitted <%= time_ago_in_words(comment.created_at) %> ago</small>
   <% end %>
   <div id="mfc-reply-<%=comment.id%>" class="reply">Reply</div>
