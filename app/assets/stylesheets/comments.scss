@@ -108,7 +108,10 @@ body.mfc {
         width: 100%;
     }
     
-    #new_comment {    
+    #new_comment {
+        
+        margin-bottom: 40px;
+        
         textarea, input {
             margin-bottom: 12px;
             padding: 10px;
@@ -118,8 +121,30 @@ body.mfc {
         }
         
         textarea:focus, input:focus {
-            background-color: #efefef;
+            background-color: #f7f7f7;
             outline: 0;
+        }
+        
+        input[type=submit] {
+            display: block;
+            text-decoration: none;
+            border: none;
+            color: white;
+            text-align: center;
+            font-weight: 600;
+            background: #e22e04;
+            padding: 16px;
+            margin: 0px auto;
+            width: 100%;
+            border-radius: 5px;
+            text-transform: uppercase;
+            margin-top: 6px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+        
+        input[type=submit]:hover {
+            background-color: #c12501;
         }
     }
     
@@ -138,5 +163,21 @@ body.mfc {
     
     #comment_url {
         width: 100%;
+    }
+    
+    @media only screen and (max-width: 480px) {
+        .name-email {
+            display: block;
+        }
+        
+        #comment_author {
+            width: 100%;
+            margin-right: 0;
+        }
+        
+        #comment_email {
+            width: 100%;
+        }
+
     }
 }

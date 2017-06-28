@@ -7,11 +7,11 @@ function insertAfter(newNode, referenceNode) {
 }
 
 function initializeComments() {
-    setReplyLinks();
+    setFormListeners();
     window.commentFormAction = document.getElementById("new_comment").action;
 }
 
-function setReplyLinks() {
+function setFormListeners() {
     var replyLinks = document.getElementsByClassName("reply");
 
     for (i = 0; i < replyLinks.length; i++) {
