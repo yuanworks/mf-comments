@@ -1,5 +1,8 @@
+// window.onload won't work with turbolinks
+//window.onload = initializeComments
 
-window.onload = initializeComments
+//document.addEventListener("turbolinks:load", initializeComments);
+initializeComments();
 
 // HELPERS
 function insertAfter(newNode, referenceNode) {
@@ -7,6 +10,7 @@ function insertAfter(newNode, referenceNode) {
 }
 
 function initializeComments() {
+    console.log("Initializing comments...");
     setFormListeners();
     window.commentFormAction = document.getElementById("new_comment").action;
 }
@@ -19,6 +23,7 @@ function setFormListeners() {
     }
     
     var divCancelReply = document.getElementById("mfc-cancel-reply");
+    
     divCancelReply.addEventListener("click", cancelReply);
     divCancelReply.classList.add("hidden");
 }

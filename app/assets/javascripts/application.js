@@ -12,5 +12,4 @@
 //
 //= require rails-ujs
 //= require turbolinks
-//= require_tree .
-//= require comments
+// Removed because it will include all files -> = require_tree .

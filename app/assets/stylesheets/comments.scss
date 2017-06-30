@@ -90,6 +90,16 @@ body.mfc {
         margin-right: 8px;
     }
     
+    /* flash notice */
+    .notice {
+        border-radius: 3px;
+        /* margin: 6px; */
+        padding: 10px;
+        text-align: center;
+        background-color: #e0e0e0;
+        color: #585858;
+    }
+    
     /* Comment Box */
     
     h3.leave-comment {

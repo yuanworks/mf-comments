@@ -14,6 +14,7 @@ before_action :find_discussion
       @comment = @discussion.comments.new comment_params
 
       if @comment.save
+        flash[:notice] = "Comment posted successfully."
        	redirect_back(fallback_location: root_path)
         #redirect_to :back, notice: 'Your comment was successfully posted!'
       else
