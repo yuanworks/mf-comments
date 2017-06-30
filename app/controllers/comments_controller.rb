@@ -1,16 +1,16 @@
 class CommentsController < ApplicationController
 before_action :find_discussion
     
-    http_basic_authenticate_with name: "yuan", password: "hao", only: :destroy
-    
     def new
       @comment = Comment.new
     end
     
     def destroy
-      Comment.delete(params[:id])
-      flash[:notice] = "Comment deleted successfully."
-      redirect_back(fallback_location: root_path)
+      if admin_signed_in?
+        Comment.delete(params[:id])
+        flash[:notice] = "Comment deleted successfully."
+        redirect_back(fallback_location: root_path)
+      end
     end
 
     def create
