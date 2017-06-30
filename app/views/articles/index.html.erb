@@ -2,7 +2,7 @@
 <% @articles.each do |article| %>
   <p>
     <%= link_to(article.title, article.url, target: "_blank") %> - <%= link_to("Show Page", article) %>
-    <%= button_to "Delete", {action: "destroy", id: article.id }, method: :delete %>
+    <%= button_to "Delete", {action: "destroy", id: article.id }, method: :delete, data: {confirm: "Are you sure?"} %>
 
   </p>
 <% end %>

@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
 before_action :find_discussion
-
+    
+    http_basic_authenticate_with name: "yuan", password: "hao", only: :destroy
+    
     def new
       @comment = Comment.new
     end
