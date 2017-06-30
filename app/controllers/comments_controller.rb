@@ -5,8 +5,9 @@ before_action :find_discussion
       @comment = Comment.new
     end
     
-    def delete
-      Comment.delete
+    def destroy
+      Comment.delete(params[:id])
+      flash[:notice] = "Comment deleted successfully."
       redirect_back(fallback_location: root_path)
     end
 

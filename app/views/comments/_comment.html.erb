@@ -16,8 +16,11 @@
     <small>Submitted <%= time_ago_in_words(comment.created_at) %> ago</small>
   <% end %>
   <div id="mfc-reply-<%=comment.id%>" class="reply">Reply</div>
-  <%#= button_to "Delete", {action: "delete", id: comment.id }, method: :delete, data: { confirm: "Are you sure?" } %>
-
+  <%# = button_to "Delete", {action: "delete", id: comment.id }, method: :delete, data: { confirm: "Are you sure?" } %>
+  <%= link_to 'DeleteLink', comment_path(comment),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+                
   </div>
 
   <ul class="child-comment">
