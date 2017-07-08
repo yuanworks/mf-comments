@@ -15,6 +15,7 @@ before_action :find_discussion
 
     def create
       @comment = @discussion.comments.new comment_params
+      @comment.ip_address = request.remote_ip
 
       if @comment.save
         flash[:notice] = "Comment posted successfully."
@@ -28,7 +29,7 @@ before_action :find_discussion
     private
 
     def comment_params
-      params.require(:comment).permit(:author, :email, :url, :body)
+      params.require(:comment).permit(:author, :email, :url, :body, :ip_address)
     end
 
     def find_discussion
