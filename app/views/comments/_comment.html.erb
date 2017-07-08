@@ -20,13 +20,9 @@
     <small>Submitted <%= time_ago_in_words(comment.created_at) %> ago</small>
   <% end %>
   <div id="mfc-reply-<%=comment.id%>" class="reply">Reply</div>
-<<<<<<< HEAD
-  <div><%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></div>
-=======
   <%if admin_signed_in? %>
     <%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
->>>>>>> admin
   </div>
 
   <ul class="child-comment">

@@ -9,7 +9,11 @@
 <h3>Comments</h3>
 
 <ul class="main-comments">
-  <%= render(partial: 'comments/comment', collection: @article.comments) %>
+  <% if @article.comments.count > 0 %>
+    <%= render(partial: 'comments/comment', collection: @article.comments) %>
+  <% else %>
+    No comments on this post yet. <a href="#mfc-comment-box">Leave a reply</a>.
+  <% end %>
 </ul>
 
 <div id="mfc-comment-last">

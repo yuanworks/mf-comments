@@ -3,16 +3,17 @@
     <h1>Articles</h1>
     <% @articles.each do |article| %>
       <p>
-        <%= link_to(article.title, article.url, target: "_blank") %> - <%= link_to("Show Page", article) %>
+        <h3><%= article.title %> (<%= link_to(article.codename, article) %>)</h3>
+        <div><%= link_to(article.url, article.url) %></div>
         <%= button_to "Delete", {action: "destroy", id: article.id }, method: :delete, data: {confirm: "Are you sure you want to delete the article?"} %>
       </p>
     <% end %>
 
     <h2>Add New Article</h2>
     <%= form_for [@article, Article.new] do |f| %>
-      <%= f.text_field :title, placeholder: "Title" %><br/>
-      <%= f.text_field :codename, placeholder: "Codename (ie: 'hamstring-2017-05')" %><br/>
-      <%= f.text_field :url, placeholder: "URL" %><br/>
+      <%= f.text_field :title, placeholder: "Title", required: true %><br/>
+      <%= f.text_field :codename, placeholder: "Codename (ie: 'hamstring-2017-05')", required: true %><br/>
+      <%= f.text_field :url, placeholder: "URL", required: true %><br/>
       <%= f.submit "Add New Article" %>
     <% end %>
 <% else %>
