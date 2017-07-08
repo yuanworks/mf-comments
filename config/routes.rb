@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments
   end
+  
+  get '/articles/c/:codename', to: 'articles#show'
 
   resources :comments do
     resources :comments

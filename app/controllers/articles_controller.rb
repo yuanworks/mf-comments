@@ -28,7 +28,12 @@ class ArticlesController < ApplicationController
   end
 
   def show
-	@article = Article.find(params[:id])
+    if params[:id]
+      @article = Article.find(params[:id])
+    
+    elsif params[:codename]
+      @article = Article.find_by(codename: params[:codename])
+    end
   end
 
   private
