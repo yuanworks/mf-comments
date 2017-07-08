@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170630211205) do
+ActiveRecord::Schema.define(version: 20170708043851) do
 
   create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20170630211205) do
     t.string "discussion_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "ip_address", limit: 64
   end
 
 end
