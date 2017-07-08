@@ -28,8 +28,10 @@
     </div>
 </div>
 
-<%= link_to(@article.title, @article.url, target: "_blank") %><br/>
-<small>Submitted <%= time_ago_in_words(@article.created_at) %> ago</small>
-<div><%= link_to 'All Articles', articles_path %></div>
+<% if admin_signed_in? %>
+  <%= link_to(@article.title, @article.url, target: "_blank") %><br/>
+  <small>Submitted <%= time_ago_in_words(@article.created_at) %> ago</small>
+  <div><%= link_to 'All Articles', articles_path %></div>
+<% end %>
 
 <%= javascript_include_tag 'comments.js' %>
