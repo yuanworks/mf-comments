@@ -13,6 +13,9 @@ function initializeComments() {
     console.log("Initializing comments...");
     setFormListeners();
     window.commentFormAction = document.getElementById("new_comment").action;
+    
+    // used to show user ID and IP options from localStorage
+    retrieveAdminOptions();
 }
 
 function setFormListeners() {
@@ -56,33 +59,50 @@ function cancelReply() {
     divCancelReply.classList.add("hidden");
 }
 
+function retrieveAdminOptions() {
+    
+    if (localStorage.getItem('admin-show-ip') === 'true') {
+        
+        document.getElementById('admin-options-toggle-ip').classList.add('admin-options-on');    
+        var userIPs = document.getElementsByClassName('user-ip');
+        
+        for (i = 0; i < userIPs.length; i++) {
+            userIPs[i].classList.remove('hidden');
+        }
+    }
+    
+    if (localStorage.getItem('admin-show-id') === 'true') {
+        
+        document.getElementById('admin-options-toggle-id').classList.add('admin-options-on');    
+        var userIDs = document.getElementsByClassName('user-id');
+        
+        for (i = 0; i < userIDs.length; i++) {
+            userIDs[i].classList.remove('hidden');
+        }
+    }
+    
+}
+
 function toggleIP(e) {
     
+    var showIP = e.target.classList.toggle('admin-options-on');
+    localStorage.setItem('admin-show-ip', showIP);
+        
     var userIPs = document.getElementsByClassName('user-ip');
     
     for (i = 0; i < userIPs.length; i++) {
-        
-        if (e.target.classList.contains('admin-options-on'))
-            userIPs[i].classList.add('hidden');
-        else
-            userIPs[i].classList.remove('hidden');
+        userIPs[i].classList.toggle('hidden');
     }
-    
-    e.target.classList.toggle('admin-options-on');
 }
 
 function toggleCommentID(e) {
-
+    
+    var showID = e.target.classList.toggle('admin-options-on');
+    localStorage.setItem('admin-show-id', showID);
+    
     var userIDs = document.getElementsByClassName('user-id');
     
     for (i = 0; i < userIDs.length; i++) {
-        
-        if (e.target.classList.contains('admin-options-on'))
-            userIDs[i].classList.add('hidden');
-        else
-            userIDs[i].classList.remove('hidden');
+        userIDs[i].classList.toggle('hidden');
     }
-    
-    e.target.classList.toggle('admin-options-on');
-    
 }

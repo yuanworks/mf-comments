@@ -12,9 +12,9 @@
   
   <% if admin_signed_in? %>
     <% if !comment.ip_address.nil? %>
-      <%= link_to comment.ip_address, "http://ipinfo.io/"+comment.ip_address, class: "user-meta user-ip", target: "_blank" %>
+      <%= link_to comment.ip_address, "http://ipinfo.io/"+comment.ip_address, class: "user-meta user-ip hidden", target: "_blank" %>
     <% end %>
-    <span class='user-meta user-id'>#<%= comment.id %></span>
+    <span class='user-meta user-id hidden'>#<%= comment.id %></span>
   <%end %>
   </div>
   

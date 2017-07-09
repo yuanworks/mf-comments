@@ -27,3 +27,5 @@ end
 * Styling for ADMIN fields
 
 * Required parameters for activerecord model and database
+
+* Validate URL / always add HTTP

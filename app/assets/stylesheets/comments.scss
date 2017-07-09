@@ -12,6 +12,9 @@ body.mfc {
     font-family: 'Raleway', 'Helvetica', sans-serif;
     max-width: 100%;
     width: 600px;
+    
+    /* TEMPORARY FOR NO IFRAME */
+    padding: 0 10px;
 }
 
 .mfc {
@@ -206,7 +209,9 @@ body.mfc {
         font-size: 12px;
         font-weight: 400;
         text-transform: uppercase;
-        vertical-align: middle;        
+        vertical-align: middle;
+        
+        cursor: pointer;  
     }
     
     .admin-options-on {
