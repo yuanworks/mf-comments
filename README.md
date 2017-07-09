@@ -2,7 +2,7 @@
 
 Welcome to MF Comments - Ruby.
 
-# Creating an Admin
+## Creating an Admin
 
 Admin creation is disabled for security reasons.To create an admin, you will need to use the Rails console:
 
@@ -16,7 +16,7 @@ admin = Admin.create! do |u|
 end
 ```
 
-# TO DO
+## TO DO
 
 * Only allow myself to use the name "Yuan" and email
 
