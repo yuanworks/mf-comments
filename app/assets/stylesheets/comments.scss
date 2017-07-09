@@ -82,17 +82,17 @@ body.mfc {
         }
     }
     
-    a.user-ip {
+    
+    .user-meta {
         border: 1px solid #d0d0d0;
         border-radius: 4px;
         padding: 1px 4px 2px 4px;
         vertical-align: text-top;
-
-        color: gray;
+        color: gray !important;
         font-size: 13px;
         font-weight: 400;
     }
-
+    
     .gravatar {
         height: 40px;
         width: 40px;
@@ -194,6 +194,25 @@ body.mfc {
 
         font-size: 14px;
         text-align: center;
+    }
+    
+    .admin-options {
+        padding: 2px 5px;
+        
+        border: 1px solid lightgray;
+        border-radius: 2px;
+        
+        color: gray;
+        font-size: 12px;
+        font-weight: 400;
+        text-transform: uppercase;
+        vertical-align: middle;        
+    }
+    
+    .admin-options-on {
+        border: 1px solid orange;
+        background-color: orange;
+        color: white;
     }
     
     @media only screen and (max-width: 480px) {

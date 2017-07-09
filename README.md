@@ -20,9 +20,9 @@ end
 
 * Only allow myself to use the name "Yuan" and email
 
-* Admin login (auth?) - only allow one user creation
+* Scroll to the comment box when pressing "Reply"
 
-* Deploy to test apache server
+* Deploy to test apache server on c.mf.com
 
 * Styling for ADMIN fields
 

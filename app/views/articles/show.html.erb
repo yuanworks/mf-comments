@@ -2,7 +2,12 @@
   <div class="notice"><%= flash[:notice] %> Follow us on <a href="https://facebook.com/MindfulFlex/">Facebook</a></div>
 <% end %>
 
-<h3>Comments</h3>
+<h3>Comments
+    <% if admin_signed_in? %>
+        <span class='admin-options admin-options-on' id='admin-options-toggle-ip'>IP</span>
+        <span class='admin-options' id='admin-options-toggle-id'>ID</span>
+    <% end %>
+</h3>
 
 <ul class="main-comments">
   <% if @article.comments.count > 0 %>

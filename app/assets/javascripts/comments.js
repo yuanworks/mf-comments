@@ -26,6 +26,12 @@ function setFormListeners() {
     
     divCancelReply.addEventListener("click", cancelReply);
     divCancelReply.classList.add("hidden");
+    
+    var spanToggleIP = document.getElementById('admin-options-toggle-ip');
+    spanToggleIP.addEventListener("click", toggleIP);
+
+    var spanToggleCommentID = document.getElementById('admin-options-toggle-id');
+    spanToggleCommentID.addEventListener("click", toggleCommentID);
 }
 
 function moveReplyBox() {
@@ -48,4 +54,35 @@ function cancelReply() {
     
     var divCancelReply = document.getElementById("mfc-cancel-reply");
     divCancelReply.classList.add("hidden");
+}
+
+function toggleIP(e) {
+    
+    var userIPs = document.getElementsByClassName('user-ip');
+    
+    for (i = 0; i < userIPs.length; i++) {
+        
+        if (e.target.classList.contains('admin-options-on'))
+            userIPs[i].classList.add('hidden');
+        else
+            userIPs[i].classList.remove('hidden');
+    }
+    
+    e.target.classList.toggle('admin-options-on');
+}
+
+function toggleCommentID(e) {
+
+    var userIDs = document.getElementsByClassName('user-id');
+    
+    for (i = 0; i < userIDs.length; i++) {
+        
+        if (e.target.classList.contains('admin-options-on'))
+            userIDs[i].classList.add('hidden');
+        else
+            userIDs[i].classList.remove('hidden');
+    }
+    
+    e.target.classList.toggle('admin-options-on');
+    
 }
