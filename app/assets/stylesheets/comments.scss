@@ -186,6 +186,16 @@ body.mfc {
         width: 100%;
     }
     
+    #admin-logout {
+        margin-top: 28px;
+        padding: 4px;
+
+        background-color: #ececec;
+
+        font-size: 14px;
+        text-align: center;
+    }
+    
     @media only screen and (max-width: 480px) {
         .name-email {
             display: block;
