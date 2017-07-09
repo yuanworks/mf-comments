@@ -6,13 +6,15 @@ Welcome to MF Comments - Ruby.
 
 Admin creation is disabled for security reasons.To create an admin, you will need to use the Rails console:
 
-```> rails c
+```
+> rails c
 
 admin = Admin.create! do |u|
   u.email = 'sample@sample.com'
   u.password = 'password'
   u.password_confirmation = 'password'
-end```
+end
+```
 
 # TO DO
 
