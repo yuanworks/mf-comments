@@ -31,10 +31,13 @@ function setFormListeners() {
     divCancelReply.classList.add("hidden");
     
     var spanToggleIP = document.getElementById('admin-options-toggle-ip');
-    spanToggleIP.addEventListener("click", toggleIP);
+    if (spanToggleIP) spanToggleIP.addEventListener("click", toggleIP);
 
     var spanToggleCommentID = document.getElementById('admin-options-toggle-id');
-    spanToggleCommentID.addEventListener("click", toggleCommentID);
+    if (spanToggleCommentID) spanToggleCommentID.addEventListener("click", toggleCommentID);
+
+    var spanToggleTimestamp = document.getElementById('admin-options-toggle-timestamp');
+    if (spanToggleTimestamp) spanToggleTimestamp.addEventListener("click", toggleTimestamp);
 }
 
 function moveReplyBox() {
@@ -108,5 +111,17 @@ function toggleCommentID(e) {
     
     for (i = 0; i < userIDs.length; i++) {
         userIDs[i].classList.toggle('hidden');
+    }
+}
+
+function toggleTimestamp(e) {
+    
+    var showTimestamp = e.target.classList.toggle('admin-options-on');
+    localStorage.setItem('admin-show-timestamp', showTimestamp);
+    
+    var userTimestamps = document.getElementsByClassName('user-timestamp');
+    
+    for (i = 0; i < userTimestamps.length; i++) {
+        userTimestamps[i].classList.toggle('hidden');
     }
 }

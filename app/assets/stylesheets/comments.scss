@@ -208,7 +208,9 @@ body.mfc {
         text-transform: uppercase;
         vertical-align: middle;
         
-        cursor: pointer;  
+        cursor: pointer;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
     }
     
     .admin-options-on {

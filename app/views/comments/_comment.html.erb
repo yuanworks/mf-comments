@@ -15,6 +15,7 @@
       <%= link_to comment.ip_address, "http://ipinfo.io/"+comment.ip_address, class: "user-meta user-ip hidden", target: "_blank" %>
     <% end %>
     <span class='user-meta user-id hidden'>#<%= comment.id %></span>
+    <span class='user-meta user-timestamp hidden'><%= comment.created_at.strftime("%Y-%m-%d") %></span>
   <%end %>
   </div>
   
