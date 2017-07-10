@@ -22,4 +22,10 @@ rel='stylesheet' type='text/css'>
         </div>
     <% end %>
   </body>
+  
+  <script>
+  if ( self === top ) { // self !== top inside iframe
+    document.body.style.padding = "0 10px";
+  }
+  </script>
 </html>

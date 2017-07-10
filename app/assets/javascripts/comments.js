@@ -46,6 +46,8 @@ function moveReplyBox() {
     
     var divCancelReply = document.getElementById("mfc-cancel-reply");
     divCancelReply.classList.remove("hidden");
+    
+    document.getElementsByClassName('leave-comment')[0].innerHTML = "Reply To Comment";
 }
 
 function cancelReply() {
@@ -57,6 +59,8 @@ function cancelReply() {
     
     var divCancelReply = document.getElementById("mfc-cancel-reply");
     divCancelReply.classList.add("hidden");
+    
+    document.getElementsByClassName('leave-comment')[0].innerHTML = "Leave a Comment";
 }
 
 function retrieveAdminOptions() {
