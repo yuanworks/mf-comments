@@ -14,13 +14,21 @@ before_action :find_discussion
     end
 
     def create
+        
+          
       @comment = @discussion.comments.new comment_params
+      
+      # if not signed in, cannot use the admin emails
+      if !admin_signed_in? && Rails.application.config.x.disallowed_emails.include?(@comment.email)
+        flash[:notice] = "You cannot use the email address you supplied: #{@comment.email}."
+        return redirect_back(fallback_location: root_path)
+      end
+      
       @comment.ip_address = request.remote_ip
 
       if @comment.save
         flash[:notice] = "Comment posted successfully."
        	redirect_back(fallback_location: root_path)
-        #redirect_to :back, notice: 'Your comment was successfully posted!'
       else
         #redirect_to :back, notice: "Your comment wasn't posted!"
       end

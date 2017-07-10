@@ -20,6 +20,10 @@ end
 
 * Only allow myself to use the name "Yuan" and email
 
+* Akismet for comment filtering
+
+* Akismet ADMIN Section
+
 * Scroll to the comment box when pressing "Reply"
 
 * Deploy to test apache server on c.mf.com
@@ -29,3 +33,5 @@ end
 * Required parameters for activerecord model and database
 
 * Validate URL / always add HTTP
+
+* Keep comment count

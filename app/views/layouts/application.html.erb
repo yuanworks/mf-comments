@@ -17,7 +17,8 @@ rel='stylesheet' type='text/css'>
     
     <% if admin_signed_in? %>
         <div id='admin-logout'>
-            You are logged in as <%= current_admin.email %>.
+            You are logged in as <%= current_admin.email %>. </br>
+            <%= link_to 'View All Articles', articles_path %> |
             <%= link_to('Logout', destroy_admin_session_path, method: :delete) %>
         </div>
     <% end %>
