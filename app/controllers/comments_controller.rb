@@ -1,3 +1,5 @@
+require "ipaddress"
+
 class CommentsController < ApplicationController
 before_action :find_discussion
     
@@ -14,10 +16,16 @@ before_action :find_discussion
     end
 
     def create
-        
-          
+              
       @comment = @discussion.comments.new comment_params
       
+      if IPAddress.valid? @comment.url
+          flash[:notice] = "Your website URL is invalid."
+          return redirect_back(fallback_location: root_path)
+      end
+      
+     @comment.url = fix_url(@comment.url)
+        
       # if not signed in, cannot use the admin emails
       if !admin_signed_in? && Rails.application.config.x.disallowed_emails.include?(@comment.email)
         flash[:notice] = "You cannot use the email address you supplied: #{@comment.email}."
@@ -33,7 +41,7 @@ before_action :find_discussion
         #redirect_to :back, notice: "Your comment wasn't posted!"
       end
     end
-
+    
     private
 
     def comment_params

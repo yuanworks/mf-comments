@@ -1,10 +1,8 @@
-// window.onload won't work with turbolinks
-//window.onload = initializeComments
-
 //document.addEventListener("turbolinks:load", initializeComments);
 initializeComments();
 
-// HELPERS
+// HELPER FUNCTIONS
+// ----------------
 function insertAfter(newNode, referenceNode) {
     referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 }
@@ -14,7 +12,7 @@ function initializeComments() {
     setFormListeners();
     window.commentFormAction = document.getElementById("new_comment").action;
     
-    // used to show user ID and IP options from localStorage
+    // options are saved on localStorage
     retrieveAdminOptions();
 }
 

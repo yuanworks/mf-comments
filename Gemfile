@@ -31,6 +31,9 @@ gem 'jbuilder', '~> 2.5'
 # Use 'devise' for admin login
 gem 'devise'
 
+# Use ipaddress to verify if an IP is valid
+gem 'ipaddress'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

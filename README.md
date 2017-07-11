@@ -1,6 +1,6 @@
-# README
+# MF-Comments
 
-Welcome to MF Comments - Ruby.
+Wordpress-like Comments on Ruby/Rails and vanilla Javascript.
 
 ## Creating an Admin
 
@@ -17,8 +17,6 @@ end
 ```
 
 ## TO DO
-
-* Only allow myself to use the name "Yuan" and email
 
 * Akismet for comment filtering
 

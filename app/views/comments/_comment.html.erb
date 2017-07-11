@@ -7,7 +7,7 @@
   <% if !comment.url? %>
     <%= comment.author %>
   <% else %>
-    <%= link_to comment.author, comment.url %>
+    <%= link_to comment.author, fix_url(comment.url) %>
   <% end %>
   
   <% if admin_signed_in? %>
