@@ -24,12 +24,10 @@ Additionally, you can enable the routing option for creating new admin users on 
 
 * Akismet ADMIN Section
 
-* Scroll to the comment box when pressing "Reply"
-
 * Deploy to test apache server on c.mf.com
 
 * Styling for ADMIN fields
 
-* Required parameters for activerecord model and database
+* Add migrations for required fields (not null)
 
 * Keep comment count

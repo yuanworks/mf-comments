@@ -39,7 +39,8 @@ function setFormListeners() {
 }
 
 function moveReplyBox() {
-    insertAfter(document.getElementById("mfc-comment-box"), this);
+    var commentBox = document.getElementById("mfc-comment-box");
+    insertAfter(commentBox, this);
     
     var form = document.getElementById("new_comment");
     var replyID = this.id.split('-')[2];
@@ -49,6 +50,10 @@ function moveReplyBox() {
     divCancelReply.classList.remove("hidden");
     
     document.getElementsByClassName('leave-comment')[0].innerHTML = "Reply To Comment";
+    
+    // Use velocity to smooth-scroll down
+    Velocity(commentBox, "fadeIn", {duration: 700, queue: false});
+	Velocity(commentBox, "scroll", {duration: 700, easing: 'easeInSine', offset: -10});
 }
 
 function cancelReply() {
