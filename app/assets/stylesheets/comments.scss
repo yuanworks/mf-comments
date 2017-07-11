@@ -101,14 +101,21 @@ body.mfc {
         margin-right: 8px;
     }
     
-    /* flash notice */
-    .notice {
+    /* rails flash notice and alert */
+    .flash {
         border-radius: 3px;
-        /* margin: 6px; */
         padding: 10px;
-        text-align: center;
+        text-align: center;    
+    }
+    
+    .notice {
         background-color: #e0e0e0;
         color: #585858;
+    }
+    
+    .alert {
+        background-color: red;
+        color: white;
     }
     
     /* Comment Box */

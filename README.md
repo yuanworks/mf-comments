@@ -16,6 +16,8 @@ admin = Admin.create! do |u|
 end
 ```
 
+Additionally, you can enable the routing option for creating new admin users on the admin.rb model.
+
 ## TO DO
 
 * Akismet for comment filtering
@@ -29,7 +31,5 @@ end
 * Styling for ADMIN fields
 
 * Required parameters for activerecord model and database
-
-* Validate URL / always add HTTP
 
 * Keep comment count

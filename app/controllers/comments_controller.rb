@@ -1,4 +1,5 @@
 require "ipaddress"
+require "email_validator"
 
 class CommentsController < ApplicationController
 before_action :find_discussion
@@ -20,15 +21,23 @@ before_action :find_discussion
       @comment = @discussion.comments.new comment_params
       
       if IPAddress.valid? @comment.url
-          flash[:notice] = "Your website URL is invalid."
+          flash[:alert] = "Your website URL is invalid."
           return redirect_back(fallback_location: root_path)
       end
       
-     @comment.url = fix_url(@comment.url)
-        
+      EmailValidator.regexp(strict_mode: true)
+      unless EmailValidator.valid?(@comment.email)
+        flash[:alert] = "Your comment was not successfully posted. Verify that your email address is valid."
+        return redirect_back(fallback_location: root_path)
+      end
+      
+      if @comment.url?
+        @comment.url = fix_url(@comment.url)
+      end
+    
       # if not signed in, cannot use the admin emails
       if !admin_signed_in? && Rails.application.config.x.disallowed_emails.include?(@comment.email)
-        flash[:notice] = "You cannot use the email address you supplied: #{@comment.email}."
+        flash[:alert] = "You cannot use the email address you supplied: #{@comment.email}."
         return redirect_back(fallback_location: root_path)
       end
       
@@ -38,7 +47,8 @@ before_action :find_discussion
         flash[:notice] = "Comment posted successfully."
        	redirect_back(fallback_location: root_path)
       else
-        #redirect_to :back, notice: "Your comment wasn't posted!"
+        flash[:alert] = "Your comment was not successfully posted."
+        redirect_back(fallback_location: root_path)
       end
     end
     

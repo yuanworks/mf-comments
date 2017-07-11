@@ -22,7 +22,8 @@ class ArticlesController < ApplicationController
             redirect_back(fallback_location: root_path)
           #redirect_to :back, notice: 'Your comment was successfully posted!'
         else
-          #redirect_to :back, notice: "Your comment wasn't posted!"
+          #flash[:notice] = "Your comment was not successfully posted. Verify that your email address is valid."
+          #redirect_back(fallback_location: root_path)
         end
     end
   end

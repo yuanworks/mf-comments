@@ -34,6 +34,9 @@ gem 'devise'
 # Use ipaddress to verify if an IP is valid
 gem 'ipaddress'
 
+# Use email_validator to verify that an email is valid through regex
+gem 'email_validator'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
